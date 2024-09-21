@@ -25,6 +25,7 @@
             android:layout_marginTop="0sp"
             android:layout_marginEnd="30sp"
             android:layout_marginBottom="40sp"
+            android:baselineAligned="true"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -37,7 +38,7 @@
                 <TextView
                     android:id="@+id/txtTime1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Nós"
                     android:textAlignment="center"
@@ -57,7 +58,7 @@
                 <TextView
                     android:id="@+id/txtTime2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Eles"
                     android:textAlignment="center"
@@ -76,7 +77,9 @@
             android:layout_marginTop="70sp"
             android:layout_marginEnd="30sp"
             android:layout_marginBottom="40sp"
-            android:orientation="horizontal">
+            android:baselineAligned="true"
+            android:orientation="horizontal"
+            android:textAlignment="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,7 +111,7 @@
                 <TextView
                     android:id="@+id/txtPontosTime2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:drawingCacheQuality="high"
                     android:text="0"
