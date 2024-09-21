@@ -11,12 +11,13 @@
     <LinearLayout
         android:id="@+id/layoutMain"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.506"
+        tools:layout_editor_absoluteX="192dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +25,6 @@
             android:layout_marginStart="30sp"
             android:layout_marginTop="0sp"
             android:layout_marginEnd="30sp"
-            android:layout_marginBottom="40sp"
             android:baselineAligned="true"
             android:orientation="horizontal">
 
@@ -72,11 +72,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200sp"
+            android:layout_height="180sp"
             android:layout_marginStart="30sp"
-            android:layout_marginTop="70sp"
             android:layout_marginEnd="30sp"
-            android:layout_marginBottom="40sp"
             android:baselineAligned="true"
             android:orientation="horizontal"
             android:textAlignment="center">
@@ -127,9 +125,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="10sp"
-            android:layout_marginTop="2sp"
+            android:layout_marginTop="20sp"
             android:layout_marginEnd="10sp"
-            android:layout_marginBottom="40sp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -142,13 +139,14 @@
                 <Button
                     android:id="@+id/btnMenosPtTime1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:backgroundTint="@color/material_on_background_disabled"
+                    android:background="#00FFFFFF"
+                    android:backgroundTint="#00FFFFFF"
                     android:text="-"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -161,13 +159,13 @@
                 <Button
                     android:id="@+id/btnMenosPtTime2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:backgroundTint="@color/material_on_background_disabled"
+                    android:background="#00FFFFFF"
                     android:text="-"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -176,9 +174,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="60sp"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="20sp"
             android:layout_marginEnd="60sp"
-            android:layout_marginBottom="40sp"
+            android:layout_marginBottom="20sp"
             android:orientation="horizontal">
 
 
@@ -194,11 +192,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:backgroundTint="@color/material_on_background_disabled"
+                    android:background="#00FFFFFF"
                     android:text="+"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="48sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -213,27 +211,90 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50sp"
                     android:layout_weight="0"
-                    android:backgroundTint="@color/material_on_background_disabled"
+                    android:background="#00FFFFFF"
                     android:text="+"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="48sp" />
+                    android:textSize="60sp" />
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20sp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnTruco"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
                 android:backgroundTint="@color/black"
                 android:text="Truco!"
-                android:textColor="@color/white" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtVitorias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="Vitórias"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtVitTime1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="34sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtVitTime2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="34sp" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
