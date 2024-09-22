@@ -1,3 +1,5 @@
+
+
 # Compiled class file
 *.class
 
@@ -23,4 +25,90 @@
 hs_err_pid*
 replay_pid*
 
+# Diretório de build
+/build/
+app/build/
+
+# Diretórios de cache locais
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/vcs.xml
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/jsLibraryMappings.xml
+
+# Arquivos específicos do Android Studio
+*.iml
+.idea/
+*.ipr
+*.iws
+.idea/misc.xml
+*.orig
+
+# Configurações locais de ambiente
 /local.properties
+
+# Logs
+*.log
+
+# Diretório de capturas de tela gerado no Android Studio
+captures/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Diretório de caches do Gradle
+.gradle/
+**/build/
+**/captures/
+
+# Arquivo de wrapper do Gradle
+!gradle-wrapper.jar
+!gradlew
+!gradlew.bat
+
+# Arquivos do sistema operacional
+*.swp
+*.swo
+*~
+
+# Arquivos de teste gerados automaticamente
+.gradle-test-kit/
+test/
+
+# Configurações do Kotlin
+.idea/kotlin/
+
+# Relatórios do Lint
+lint/reports/
+lint/outputs/
+lint/results/
+
+# Diretório de geração de APK
+**/*.apk
+**/*.ap_
+
+# Dados da classe IntelliJ
+out/
+
+# Relatórios de testes e benchmarks
+/test-results/
+benchmark/reports/
+
+# Arquivos de configuração do Firebase (geralmente não versionados por questões de segurança)
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Dependências desnecessárias para o controle de versão
+.idea/gradle.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+# Diretórios temporários
+/tmp/
