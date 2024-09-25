@@ -1,2 +1,2 @@
-# Projeto-truco-app-kotlin
- Projeto em conjunto
+# Projeto App Contador de Truco Para Android com Kotlin
+ Projeto em conjunto com [Matheus Andretti](https://github.com/matheusandretti)
