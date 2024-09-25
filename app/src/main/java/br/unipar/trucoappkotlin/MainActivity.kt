@@ -1,5 +1,6 @@
 package br.unipar.trucoappkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -127,11 +128,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fimDaRodada() { //Para fazer...
-        Toast.makeText(this, "Chegou a 12 pontos!", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, VictoryActivity::class.java)
+        startActivity(intent)
+        //Toast.makeText(this, "Chegou a 12 pontos!", Toast.LENGTH_SHORT).show()
     }
 
     private fun mudarNomeTime() { //Para fazer...
-        Toast.makeText(this, "Mudar nome do time!", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Mudar nome do time!", Toast.LENGTH_SHORT).show()
     }
 }
 
