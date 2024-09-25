@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Definir margens gerais -->
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+
+    <!-- Definir tamanhos de texto -->
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">60sp</dimen>
+
+    <!-- Definir altura dos botões -->
+    <dimen name="button_height">60dp</dimen>
+
+    <dimen name="button_menos_height">30dp</dimen>
+
+    <!-- Definir espaçamento entre elementos -->
+    <dimen name="spacing_vertical">20dp</dimen>
+</resources>

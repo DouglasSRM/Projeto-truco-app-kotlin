@@ -8,29 +8,53 @@
     android:background="@drawable/background_wood_texture"
     tools:context=".MainActivity">
 
+    <!-- Guideline Vertical at 50% -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.13" /> <!-- 50% da largura -->
+
+    <!-- Guideline Horizontal at 20% -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="187dp" /> <!-- 20% da altura -->
+
+    <!-- Guideline Horizontal at 80% -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" /> <!-- 80% da altura -->
+
+    <!-- Main LinearLayout that holds all content -->
     <LinearLayout
         android:id="@+id/layoutMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.5"
         tools:layout_editor_absoluteX="0dp">
 
         <!-- Primeira seção de pontuação -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:baselineAligned="true"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="@dimen/margin_small"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -40,15 +64,18 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Nós"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="40sp"
+                    android:gravity="center"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="@dimen/margin_small"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -58,9 +85,12 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Eles"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="40sp"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="40sp" />
+                    android:gravity="center"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
         </LinearLayout>
@@ -68,16 +98,17 @@
         <!-- Seção de pontuação dos times -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:textAlignment="center">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="@dimen/margin_small"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -87,15 +118,18 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="80sp"
+                    android:gravity="center"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="80sp" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="@dimen/margin_small"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -103,10 +137,13 @@
                     android:id="@+id/txtPontosTime2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="0"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="80sp" />
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="80sp"
+                    android:gravity="center"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
         </LinearLayout>
@@ -114,45 +151,54 @@
         <!-- Botões de ajuste de pontuação -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginStart="10dp"
+            android:layout_height="@dimen/button_menos_height"
+            android:layout_weight="0.4"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="130dp"
+                android:layout_marginEnd="@dimen/margin_large"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnMenosPtTime1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="#00FFFFFF"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="18sp"
+                    android:autoSizeMaxTextSize="60sp"
                     android:text="-"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="60sp" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_large"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnMenosPtTime2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="#00FFFFFF"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="18sp"
+                    android:autoSizeMaxTextSize="60sp"
                     android:text="-"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="60sp" />
+                    android:textColor="@color/black"/>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -160,47 +206,56 @@
         <!-- Botões de adicionar pontuação -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="@dimen/button_menos_height"
+            android:layout_weight="0.5"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="@dimen/margin_large"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnMaisPtTime1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="#00FFFFFF"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="@dimen/text_size_small"
+                    android:autoSizeMaxTextSize="@dimen/text_size_large"
                     android:text="+"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="60sp" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_large"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnMaisPtTime2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
+                    android:layout_height="match_parent"
                     android:background="#00FFFFFF"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="@dimen/text_size_small"
+                    android:autoSizeMaxTextSize="@dimen/text_size_large"
                     android:text="+"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="60sp" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
         </LinearLayout>
@@ -208,7 +263,8 @@
         <!-- Botão de "Truco!" -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="0.4"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
@@ -216,13 +272,17 @@
                 android:id="@+id/btnTruco"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:backgroundTint="@color/black"
                 android:text="Truco!"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="10sp"
+                android:autoSizeMaxTextSize="30sp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="34sp" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <!-- Textos de vitórias -->
