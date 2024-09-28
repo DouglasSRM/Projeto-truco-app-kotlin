@@ -1,8 +1,12 @@
 package br.unipar.trucoappkotlin
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -36,14 +40,6 @@ class MainActivity : AppCompatActivity() {
         var pontosTime1: Int = 0
         var pontosTime2: Int = 0
         var pontosAdd: Int = 1
-
-        txtTime1.setOnClickListener {
-            mudarNomeTime()
-        }
-
-        txtTime2.setOnClickListener {
-            mudarNomeTime()
-        }
 
         fun updatePtTime1(){
             txtPontosTime1.text = pontosTime1.toString()
@@ -124,18 +120,60 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        fun mudarNomeTime(time: Int) {
+            val editText = EditText(this)
+
+            val txtTime = when (time) {
+                1 -> txtTime1
+                2 -> txtTime2
+                else -> null
+            }
+
+            val dialogNome = AlertDialog.Builder(this)
+                .setTitle("Nome atual: ${txtTime?.text}")
+                .setMessage("Insira o novo nome abaixo: ")
+                .setView(editText)
+                .setPositiveButton("OK", null)
+                .setNegativeButton("Cancelar", null)
+                .create()
+
+            dialogNome.show()
+
+            val btnOK: Button = dialogNome.getButton(AlertDialog.BUTTON_POSITIVE)
+            btnOK.isEnabled = false
+
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(txt: Editable?) {
+                    // Apenas habilita o botão OK caso o EditText não esteja vazio
+                    btnOK.isEnabled = (txt?.isNotEmpty() == true)
+                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            })
+
+            btnOK.setOnClickListener {
+                val novoNome = editText.text.toString()
+                txtTime?.text = novoNome
+                Toast.makeText(this, "Nome alterado para: $novoNome", Toast.LENGTH_SHORT).show()
+                dialogNome.dismiss()
+            }
+        }
+
+        txtTime1.setOnClickListener {
+            mudarNomeTime(1)
+        }
+
+        txtTime2.setOnClickListener {
+            mudarNomeTime(2)
+        }
 
     }
 
     private fun fimDaRodada() { //Para fazer...
         val intent = Intent(this, VictoryActivity::class.java)
         startActivity(intent)
-        //Toast.makeText(this, "Chegou a 12 pontos!", Toast.LENGTH_SHORT).show()
     }
 
-    private fun mudarNomeTime() { //Para fazer...
-        //Toast.makeText(this, "Mudar nome do time!", Toast.LENGTH_SHORT).show()
-    }
 }
 
 /**
