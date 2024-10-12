@@ -29,6 +29,10 @@ replay_pid*
 /build/
 app/build/
 
+# Release
+/release/
+app/release/
+
 # Diretórios de cache locais
 /.idea/caches/
 /.idea/libraries/
