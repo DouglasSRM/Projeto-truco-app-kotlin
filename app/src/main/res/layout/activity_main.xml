@@ -54,28 +54,54 @@
 
             <Button
                 android:id="@+id/btnResetarVitorias"
-                android:layout_width="@dimen/button_width_medium"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMaxTextSize="25sp"
                 android:autoSizeMinTextSize="18sp"
                 android:autoSizeTextType="uniform"
-                android:background="#00FFFFFF"
-                android:gravity="center_vertical"
+                android:backgroundTint="@color/gray"
+                android:fontFamily="@font/doppio_one"
+                android:gravity="center"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="( x )"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:text="X"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnGames"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="18sp"
+                android:autoSizeTextType="uniform"
+                android:backgroundTint="@color/gray"
+                android:fontFamily="@font/doppio_one"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text=". . ."
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
             />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginEnd="@dimen/margin_large"
             android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -91,8 +117,9 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:autoSizeMaxTextSize="40sp"
-                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMinTextSize="8sp"
                     android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/doppio_one"
                     android:gravity="center"
                     android:text="Nós"
                     android:textAlignment="center"
@@ -114,6 +141,7 @@
                     android:autoSizeMaxTextSize="40sp"
                     android:autoSizeMinTextSize="10sp"
                     android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/doppio_one"
                     android:gravity="center"
                     android:text="Eles"
                     android:textAlignment="center"
@@ -306,7 +334,7 @@
                 android:autoSizeMaxTextSize="30sp"
                 android:autoSizeMinTextSize="10sp"
                 android:autoSizeTextType="uniform"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/gray"
                 android:text="Truco!"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
@@ -325,11 +353,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoSizeTextType="uniform"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/doppio_one"
                 android:text="Vitórias"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Contadores de vitórias -->

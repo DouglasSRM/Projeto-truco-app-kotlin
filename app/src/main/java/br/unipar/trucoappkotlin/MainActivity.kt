@@ -4,7 +4,9 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var gamesMenuLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         val btnTruco = findViewById<Button>(R.id.btnTruco)
         val txtVitTime1 = findViewById<TextView>(R.id.txtVitTime1)
         val txtVitTime2 = findViewById<TextView>(R.id.txtVitTime2)
+        val btnGames = findViewById<Button>(R.id.btnGames)
         var pontosTime1: Int = 0
         var pontosTime2: Int = 0
         var pontosAdd: Int = 1
@@ -135,6 +139,39 @@ class MainActivity : AppCompatActivity() {
             activityResultLauncher.launch(intent)
         }
 
+        fun reset() {
+            txtTime1.text = "Nós"
+            txtTime2.text = "Eles"
+            vitTime1 = 0
+            vitTime2 = 0
+        }
+
+        gamesMenuLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == RESULT_OK) {
+                reset()
+            }
+        }
+
+        fun openGamesMenu() {
+            val intent = Intent(this, GamesActivity::class.java)
+            intent.putExtra("TIME_1", txtTime1.text)
+            intent.putExtra("TIME_2", txtTime2.text)
+            intent.putExtra("VIT_T1", vitTime1)
+            intent.putExtra("VIT_T2", vitTime2)
+
+            Log.d("MainActivity", "Abrindo GamesActivity com: TIME_1 = ${txtTime1.text}, TIME_2 = ${txtTime2.text}, VIT_T1 = $vitTime1, VIT_T2 = $vitTime2")
+
+            gamesMenuLauncher.launch(intent)
+        }
+
+        btnGames.setOnClickListener{
+            openGamesMenu()
+        }
+
+
+
         btnMaisPtTime1.setOnClickListener {
             when (pontosAdd) {
                 1, 3, 6, 9, 12 -> {
@@ -207,7 +244,7 @@ class MainActivity : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this)
                 .setTitle("Resetar Vitórias")
                 .setMessage("Deseja zerar o contador de vitórias?")
-                .setPositiveButton("OK") { dialog, _ ->
+                .setPositiveButton("Sim") { dialog, _ ->
                     vitTime1 = 0
                     vitTime2 = 0
                     txtVitTime1.text = "0"
@@ -216,7 +253,7 @@ class MainActivity : AppCompatActivity() {
                     checkBtnResetVit()
                     dialog.dismiss()
                 }
-                .setNegativeButton("Cancelar", null)
+                .setNegativeButton("Não", null)
                 .create()
 
             dialog.show()
@@ -225,6 +262,8 @@ class MainActivity : AppCompatActivity() {
 
         fun mudarNomeTime(time: Int) {
             val editText = EditText(this)
+
+            val maxChar = 25
 
             val txtTime = when (time) {
                 1 -> txtTime1
@@ -244,6 +283,10 @@ class MainActivity : AppCompatActivity() {
 
             val btnOK: Button = dialogNome.getButton(AlertDialog.BUTTON_POSITIVE)
             btnOK.isEnabled = false
+
+            //Define o máximo de caracteres para o nome dos times
+            val filterArray = arrayOf(InputFilter.LengthFilter(maxChar))
+            editText.filters = filterArray
 
             editText.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(txt: Editable?) {
